@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# reach
+An app to increase student involvement at university and allows students to be aware of all types of clubs, school hosted and club hosted events happening on campus.
+>>>>>>> 431f58c9fefeafa200abc350ab92ef36ef201926
