@@ -1,0 +1,40 @@
+	<table class="table borderless">	
+		<tr>
+			<th><%= f.label(:first_name) %></th>
+			<td><%= f.text_field(:first_name) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:last_name) %></th>
+			<td><%= f.text_field(:last_name) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:username)%> </th>
+			<td><%= f.text_field(:username) %></td>
+		</tr>	
+		<tr>
+			<th><%= f.label(:email)%> </th>
+			<td><%= f.text_field(:email, :size=>20) %></td>
+		</tr>	
+		<tr>
+			<th><%= f.label(:gender) %></th>
+			<td><%= f.select(:gender, ['M', 'F'])%></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:school_id, "Campus") %> </th>
+			<td><%= f.select(:school_id, @schools.map {|s| [s.name, s.id]}) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:student_number, 'Student Number: ')%></th>
+			<td><%= f.text_field(:student_number) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:year_of_study)%></th>
+			<td><%= f.select(:year_of_study, [1,2,3,4]) %>
+		</tr>
+		<tr>
+			<th><%= f.label(:password)%></th>
+			<td><%= f.password_field(:password)%></td>
+		</tr>
+		
+
+</table>

@@ -1,0 +1,33 @@
+<% @page_title ='All Categories' %>
+
+<div class="container">
+
+	<h2>All Categories</h2>
+	<br>
+	<%= link_to('Create new category', new_category_path, :class=>'btn btn-primary') %>
+	<br>
+	<br>
+	<%= link_to('Users index', users_path) %>
+	&nbsp;
+	<%= link_to('Clubs index', clubs_path) %>
+	<br>
+	<br>
+	<table class="table">
+			
+		<tr>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>	
+		<% @categories.each do |cat| %>
+			<tr>
+				<td><%= cat.name %></td>
+				<td>
+					<%= link_to('Show Clubs', category_path(cat.id),:class=>'btn btn-info') %>	
+					&nbsp;
+					<%= link_to('Delete category', delete_category_path(cat.id), :class=>'btn btn-danger') %>
+				</td>
+			</tr>
+		<% end %>
+
+	</table>
+</div>

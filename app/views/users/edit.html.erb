@@ -1,0 +1,21 @@
+<% @page_title = 'Edit '  %>
+
+
+<div class="container">
+
+	<h2>Edit User </h2>
+	
+	<%= link_to('<< Back to Menu', users_path) %> 
+
+	<%= error_messages_for(@user) %>
+
+	<br>
+	<br>
+	
+	<%= form_for(@user) do |f| %>
+		
+		<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+
+		<%= submit_tag('Save Changes', :class=>'btn btn-primary') %>
+	<% end %>
+</div>

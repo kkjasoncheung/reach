@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clubname: MyString
+  description: MyText
+  number_of_members: 1
+  president: MyString
+
+two:
+  clubname: MyString
+  description: MyText
+  number_of_members: 1
+  president: MyString

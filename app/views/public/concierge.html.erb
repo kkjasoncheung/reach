@@ -1,0 +1,161 @@
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Reach</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Concierge</a>
+                    </li>
+                    <li>
+                        <a href="#">My Clubs</a>
+                    </li>
+                    <li>
+                        <%= link_to('My Account',{:controller=>'public', :action=>'account'}) %>
+                    </li>
+                    <% if session[:username] %>
+                        <li>
+                            <%= link_to('Log out', :action=>'logout') %>
+                        </li>
+                    <% else %>
+                        <li>
+                            <%= link_to('Log in', :action=>'index') %>
+                        </li>
+                    <% end %>
+                    <% if session[:user_id]==1 %>
+                        <li>
+                            <%= link_to('Manage users', users_path) %>
+                        </li>
+                    <% end %>
+
+                </ul>
+
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <% if flash[:notice] %>
+        <div class="flash_msg">
+            
+              <%= flash[:notice] %>
+            
+        </div>
+    <% end %>
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Most Popular
+                    <small>General</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('art-text-image.png')%>
+                </a>
+              
+                
+                
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('music-text-image.png')%>
+                </a>
+               
+                
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('social-text-image.png')%>
+
+                </a>
+               
+                
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('athletics-text-image.png')%>
+                </a>
+                
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('environment-text-image.png')%>
+                </a>
+            </div>  
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <%= image_tag('spirit-text-image.png')%>
+                </a>
+                
+            </div>
+        </div>
+
+       
+
+        <hr>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li class="active">
+                        <a href="#">All</a>
+                    </li>
+                    <li>
+                        <a href="#">UTSG</a>
+                    </li>
+                    <li>
+                        <a href="#">UTSC</a>
+                    </li>
+                    <li>
+                        <a href="#">UTM</a>
+                    </li>
+                   
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Footer -->
+        <footer>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+

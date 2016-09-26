@@ -1,0 +1,67 @@
+<% @page_title = "Clubs Dashboard" %>
+
+<div class="container">
+
+	<h1>Reach Clubs</h1>
+	<br>
+	
+	<%= link_to("Create new club", new_club_path, :class=>'btn btn-primary') %>
+	&nbsp;
+	<br>
+	<br>
+	<%= link_to('<< Back to User Menu', users_path) %>
+	&nbsp;
+	<%= link_to('Categories index', categories_path) %>
+	<br>
+	<br>
+	<table class="table">
+	<tr>
+		<th>&nbsp;</th>
+		<th>Action</th>
+		<th>Club Name</th>
+		<th>Description</th>
+		<th>President</th>
+		<th>Categories</th>
+		<th># of Members</th>
+		<th>Email</th>
+		<th>Phone Number</th>
+		<th>Campus</th>
+
+
+	</tr>	
+
+	<% @clubs.each do |club| %>
+		<tr>
+			<td>
+				<% if club.display_picture.exists? %>
+					<%= image_tag club.display_picture.url(:thumb)%>
+				<% else %>
+				<% end %>
+			</td>
+		
+			<td>
+				<%= link_to('Edit', edit_club_path(club.id)) %>
+				<%= link_to('Delete', delete_club_path(club.id)) %>
+			</td>	
+
+			<td><%= club.clubname %></td>
+			<td><%= club.description %> </td>
+			<td><%= club.president %> </td>
+			<td>
+				<% club.categories.each do |category| %>
+					<%= link_to(category.name, {:controller=>"categories", :action=>'show', :id=>category.id}) %> 
+				<% end %>
+
+			</td>
+			<td>
+				<%= pluralize(club.users.size, 'member') %>
+			</td>
+			<td><%= club.email %></td>
+			<td><%= club.phone %></td>
+			<td><%= club.school.name %></td>
+			
+		</tr>
+	<% end %>
+
+	</table>
+</div>

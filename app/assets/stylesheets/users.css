@@ -1,0 +1,255 @@
+.error_messages{
+	background-color:#e6f2ff; 
+	border-top: 10px solid #33adff;
+	margin: 20px;
+	text-align: center;
+	border-radius:5px;
+}
+
+.error_messages li{
+	list-style: none;
+}
+
+.borderless td, .borderless th {
+    border: none;
+    border-top: none;
+}
+
+.background {
+	top:0px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	left: 0;
+}
+
+@media(max-width:991px) {
+	.background {
+		top:-20px;
+	}
+}
+
+@media (max-width: 760px)
+	{
+		.row label {
+			font-size:20px;
+		}
+
+		.row .btn {
+			position: relative;
+			top:-10px;
+		}
+	}
+
+
+
+.LHS {
+	height: 100vh;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+.LHS h2, .LHS th, .LHS .btn {
+	color:white;
+}
+
+.LHS td {
+	font-size:20px;
+	color: white;
+}
+
+.LHS th {
+	font-size:18px;
+}
+
+.LHS select {
+	background:transparent;
+	border:1px solid #c1f1f2;
+	font-size: 16px;
+}
+
+.LHS .borderless {
+    border-bottom:0px !important;
+}
+.LHS .borderless th, .borderless td {
+    border: 1px !important;
+}
+.LHS .fixed-table-container {
+    border:0px !important;
+}
+
+input {
+	background:none;
+	border:none;
+	border-bottom: 2px solid #c1f1f2;
+}
+
+.create_button {
+	margin-top: 5%;
+	margin-left: 35%;
+}
+
+.glyph-desc{
+	padding:0 20px;
+}
+
+@media (max-height: 700px){
+	.LHS{
+		height:700px;
+	}
+}
+
+/* Styles for 'My Account' page */
+
+	html,body {
+		
+	}
+
+	.account_container {
+		background-image: url('blue-grad2.png');
+		background-size: 100% 200%;
+		color: #676a6c;
+		height:100%;
+	}
+	#side-menu {
+		background-color: #2f4050;
+		padding:0;
+	}
+
+	#side-menu h1 {
+		color: #1f3647;
+		text-align: center;
+		margin: 10px 0;
+		font-size: 25px;
+	}
+
+	.display-table {
+		display:table;
+		padding:0;
+		height:100%;
+		width:100%;
+	}
+
+	.display-table-row {
+		display: table-row;
+		height:100%;
+
+	}
+	.display-table-cell {
+		display: table-cell;
+		float:none;
+		height:100%;
+	}
+
+	.valign-top{
+		vertical-align: top; 
+	}
+
+	#nav-header {
+		background-color: white;
+		border-bottom: 1px solid #e7eaec;
+	}
+
+	#nav-header #header-search-field {
+		padding-top: 17px;
+		width:300px;
+		border:none;
+		vertical-align: center;
+		outline:none;
+		margin-left:100px;
+	}
+
+	#nav-header ul {
+		margin:0px;
+		padding:0px;
+		list-style: none;
+	}
+
+	#nav-header ul li {
+		float:left;
+		margin: 17px 0 17px 15px;
+	 }
+
+	#nav-header ul .glyphicon {
+		color:#676a6c;
+		font-size:20px;
+	} 
+
+	.label-message {
+		background-color:#1ab394;
+	}
+
+	#nav-header ul a {
+		text-decoration: none;
+	}
+
+	#nav-header .logout {
+		color:#676a6c;
+	}
+
+	#nav-header .logout:hover {
+		color:#676a6c;
+
+	}
+
+	#nav-header #welcome {
+		margin-right:20px;
+		font-size:16px;
+	}
+
+	#nav-header ul .label {
+		position: absolute;
+		margin-top:-10px;
+		margin-left:-5px;
+	}
+
+	#nav-header .fixed-width {
+		width: 35px;
+	}
+
+	#admin-footer {
+		position: absolute;
+		width:100%;
+		bottom:0px;
+		background-color: white;
+		padding: 10px;
+		font-size:12px;
+		color:#676a6c;
+	}
+
+	.link a {
+		font-size:16px;
+		text-decoration: none;
+		display:block;
+		width:100%;
+		height:100%;
+		color:#e6e6e6;
+
+	}
+
+	.side-nav-links {
+		list-style: none;
+		margin-top:20%;
+	}
+
+	.side-nav-links li {
+		margin-bottom:10px;
+	}
+
+	.details {
+		color:#f2f2f2;
+	}
+
+	.details-content {
+		color:#e6e6e6;
+	}
+
+	.details > h1 {
+		color: white;
+	}
+
+	.glyphicon {
+		font-size:20px;
+	}
+

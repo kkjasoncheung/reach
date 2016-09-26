@@ -1,0 +1,134 @@
+<% @page_title = 'Account Details' %>
+<div class="account_container">
+	<div class="container-fluid display-table">
+		
+		<div class="row display-table-row">
+			
+
+			<div class="col-md-12 display-table-cell valign-top">
+				<div class="row">
+					<header id="nav-header" class="clearfix">
+						<div class="col-md-5">
+							<input type="text" id="header-search-field" placeholder="Search For Clubs">
+						</div>
+						<div class="col-md-7">
+							<ul class="pull-right">
+								<li id="welcome">Welcome to the Dashboard</li>
+								<li class="fixed-width">
+									<a href="#">
+										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									</a>
+								</li>
+
+								<li class="fixed-width">
+									<a href="#">
+										<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+										<span class="label label-message">3</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="logout">
+										<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+										log out
+									</a>
+								</li>
+							</ul>
+						</div>
+					</header>
+				</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4" >
+							<div class="content-box details">
+								<h1>Profile Info</h1>
+								<table class="table">
+									<tr>
+										<td>
+											<h3>Name </h3> 
+											<h4 class="details-content">
+												<%= @user.first_name + ' ' + @user.last_name %>
+											</h4>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h3>Campus</h3>
+											<h4 class="details-content">
+												<%= @user.school.name %>
+											</h4>
+										</td>	
+									</tr>
+									<tr>
+										<td>
+											<h3>Student Number </h3> 
+											<h4 class="details-content"><%= @user.student_number %></h4>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<br />
+						<br />
+						<div class="col-md-4 ">
+							<div class="content-box jumbotron">
+								<h2>Nearby Events</h2>
+								<p>gna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolo</p>
+
+							</div>
+						</div>	
+						<div class="col-md-4 ">
+							<div class="content-box jumbotron">
+								<h2>Your Clubs</h2>
+								<% if @user.clubs.size == 0 %>
+									
+									<%= "You're not in any clubs. Join one now!" %>
+
+								<% else %>
+									<table class="table">
+									<% count = 0 %>
+										<% @user.clubs.each do |club| %>
+											<tr>
+												<td><%= link_to(club.clubname, {:action=>'club_page', :id=>club.id }) %>
+													
+												</td>
+											</tr>
+											<% count+=1 %>
+											<% if count == 5 %>
+
+												<% break %>
+											<% end %>
+										<% end %>
+									</table>
+									<% if @user.clubs.size - count > 0 %>
+										<%= link_to("Show " + pluralize(@user.clubs.size-count,' more club'), '#') %>
+									<% end %>
+								<% end %>
+							</div>
+						</div>	
+					</div>
+
+					<div class="row wide-row">
+						<div class="col-md-12 wide-content">
+							<div class="jumbotron">
+									<h2>Upcoming Events</h2>
+								<p>gna aliqua. Ut enim ad minim veniam,
+								quis nostrud exr in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pa.</p>
+
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+</div>

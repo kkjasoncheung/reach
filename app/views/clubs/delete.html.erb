@@ -1,0 +1,13 @@
+<% @page_title="Delete club" %>
+
+<div class="container">
+	<br>
+	<%= link_to('<< Back to Clubs index', clubs_path) %>
+	<br>
+	<br>
+	<div class="jumbotron">
+		<p>Are you sure you want to delete : <%= @club.clubname %> ? </p>
+	</div>
+	<%= link_to('Delete', club_path(@club.id) , :method=> :delete,  :class=>'btn btn-danger') %>
+	<%= link_to('Cancel', clubs_path, :class=>'btn btn-success') %>
+</div>

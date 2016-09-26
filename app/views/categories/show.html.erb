@@ -1,0 +1,26 @@
+<% @page_title='Show ' + @category.name %>
+
+<div class="container">
+
+	<h2> Clubs in <%= @category.name %></h2>
+
+	<br>
+	<%= link_to('Back to categories index', categories_path) %>
+	<br>
+	<br>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Number of Members</th>		
+			<th>Action</th>
+		</tr>
+		<% @category.clubs.each do |club| %>
+			<tr>
+				<td><%= club.clubname %></td>
+				<td><%= club.users.size %></td>
+				<td><%= link_to('View club', club_path(club.id), :class=>'btn btn-info') %>
+				<%= link_to('Delete Club', delete_club_path(club.id),:class=>'btn btn-danger')%></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

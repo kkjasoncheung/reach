@@ -1,0 +1,38 @@
+<% @page_title = "Users Dashboard" %>
+
+<div class="container">
+
+	<h1>Reach Users</h1>
+	<br>
+	<%= link_to("Create new user", new_user_path, :class=>'btn btn-primary') %>
+	<br>
+	&nbsp;
+	<br>
+	<%= link_to('Clubs Index', clubs_path)%>
+	&nbsp;
+	<%= link_to('Categories Index', categories_path) %>
+	<br>
+	<br>
+	<table class="table">
+	<tr>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Campus</th>
+		<th>Action</th>
+	</tr>	
+
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.username%></td>
+			<td><%= user.email %></td>
+			<td><%= user.school.name %></td>
+			<td>
+				<%= link_to('Show', user_path(user.id)) %>
+				<%= link_to('Edit', edit_user_path(user.id)) %>
+				<%= link_to('Delete', delete_user_path(user.id)) %>
+			</td>			
+		</tr>
+	<% end %>
+
+	</table>
+</div>

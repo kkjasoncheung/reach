@@ -1,0 +1,68 @@
+<% @page_title ='Show ' + @club.clubname %>
+
+<div class="container">
+	<br>
+	<h2><%= @club.clubname %></h2>
+	<hr>
+	<h4>Club Details</h4>
+	<table class="table">
+	<tr>
+		<th>&nbsp;</th>
+		<th>Club Name</th>
+		<th>Description</th>
+		<th>President</th>
+		<th>Categories</th>
+		<th>Email</th>
+		<th>Phone Number</th>
+		<th>Campus</th>
+
+
+	</tr>	
+		<tr>
+			<td>
+				<% if @club.display_picture.exists? %>
+					<%= image_tag @club.display_picture.url(:thumb)%>
+				<% else %>
+				<% end %>
+			</td>
+		
+			<td><%= @club.clubname %></td>
+			<td><%= @club.description %> </td>
+			<td><%= @club.president %> </td>
+			<td>
+				<% @club.categories.each do |category| %>
+					<%= link_to(category.name, category_path(category.id)) %> 
+				<% end %>
+
+			</td>
+			<td><%= @club.email %></td>
+			<td><%= @club.phone %></td>
+			<td><%= @club.school.name %></td>
+			
+		</tr>
+
+	</table>
+
+	<br>
+
+	<h3>Members</h3>
+
+
+	<table class="table">
+		<tr>
+			<th>Username</th>
+			<th>Campus</th>
+			<th>Email</th>
+			<th>Action</th>
+		</tr>
+		
+		<% @club.users.each do |user| %>
+		<tr>
+			<td><%= user.username %></td>
+			<td><%= user.school.name %></td>
+			<td><%= user.email %></td>
+			<td><%= link_to('View Profile', user_path(user.id), :class=>'btn btn-primary')%></td>
+		</tr>
+		<% end %>	
+	</table>
+</div>

@@ -1,0 +1,24 @@
+<% @page_title="New Club" %>
+
+
+<div class="container">
+
+	<h2>New Club</h2>
+
+	<%= link_to('<< Back to menu', clubs_path) %>
+
+	<%= error_messages_for(@club) %>
+
+	<br>
+	<br>
+	<%= form_for(@club, :html=>{:multipart=>true}) do |f| %>
+
+		<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+
+		<%= submit_tag('Create new club', :class=>'btn btn-primary') %>
+
+	<% end %>
+	<br>
+</div>
+
+

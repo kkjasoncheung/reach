@@ -1,0 +1,71 @@
+<% @page_title="New User" %>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 LHS">
+
+		<%= image_tag('blue-grad2.png', :class=>'background') %>
+			<br>
+			<h2 class="text-center">Sign up to start joining clubs today!</h2>
+
+			<%# link_to('<< Back to menu', users_path) %>
+			
+			<%= error_messages_for(@user) %>
+
+			<br>
+			<br>
+
+			<%= form_for(@user) do |f| %>
+
+				<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+
+				<%= submit_tag('Create new user', :class=>'btn btn-success create_button') %>
+
+			<% end %>
+		</div>
+		<div class="col-md-6 RHS">
+			<br>
+			<h1 class="text-center" id="hero-text">Join Us Today!</h1>
+				<hr>
+				<br>
+				<br>
+				
+				<h1 id="desc" class="text-center">Get Involved on your campus today!</h1> 
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="row glyph-desc">
+					<div class="col-sm-12 col-md-4">
+						
+						<span class="glyphicon glyphicon-th"></span>
+						<p>
+							Get access to our <strong>university wide database</strong> to explore your countless options.
+						</p>
+					</div>
+
+					<div class="col-sm-12 col-md-4">
+						
+						<span class="glyphicon glyphicon-sort-by-attributes"></span>
+						<p>
+							Take advantage of our <strong>conceirge system</strong> that recommends clubs based on your personal interests.
+						</p>
+					
+					</div>
+
+					<div class="col-sm-12 col-md-4">
+							
+						<span class="glyphicon glyphicon-star"></span>
+						<p>
+							Earn <strong>rewards</strong> for your club by participating in club showcases.
+						</p>
+
+					</div>
+				</div>
+				<br>
+				<br>	
+		</div>
+	</div>
+</div>
+

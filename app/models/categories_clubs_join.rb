@@ -1,0 +1,2 @@
+class CategoriesClubsJoin < ApplicationRecord
+end

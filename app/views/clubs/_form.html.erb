@@ -1,0 +1,38 @@
+<table class="table">
+	<tr>
+		<th><%= f.label(:clubname,'Club Name') %></th>
+		<td><%= f.text_field(:clubname) %> </td>
+	</tr>
+	<tr>
+		<th><%= f.label(:description) %></th>
+		<td><%= f.text_area(:description, :size=>'30x5') %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:president) %></th>
+		<td><%= f.text_field(:president) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:school_id, 'Campus') %></th>
+		<td><%= f.select(:school_id, @schools.map{|s| [s.name, s.id]}) %></td>
+	</tr>
+	<tr>
+		<th>Club Photo</th>
+		<td><%= f.file_field(:display_picture) %></td>
+	</tr>
+</table>
+<br>
+
+<hr class="short-hr">
+
+<br>
+<h2>Contact Information <em class="minitext">Optional</em></h2>
+<table class="table">
+	<tr>
+		<th><%= f.label(:phone)%></th>
+		<td><%= f.text_field(:phone)%></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:email)%></th>
+		<td><%= f.text_field(:email)%></td>
+	</tr>
+</table>

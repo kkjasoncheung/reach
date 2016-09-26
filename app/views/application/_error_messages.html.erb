@@ -1,0 +1,15 @@
+<% if user && user.errors.size > 0 %>
+	<div class="error_messages">
+		<h2 class="errors_count"> <%= pluralize(user.errors.size, 'error') %> have occured: </h2>
+		<ul>
+			<% user.errors.full_messages.each do |msg| %>
+				<li>
+					<h5>
+						<%= msg %>
+					</h5>
+				</li>
+			<% end %>
+		</ul>
+		<br>
+	</div>
+<% end %>
