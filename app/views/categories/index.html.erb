@@ -16,11 +16,15 @@
 			
 		<tr>
 			<th>Name</th>
+			<th># of Clubs</th>
 			<th>Action</th>
 		</tr>	
 		<% @categories.each do |cat| %>
 			<tr>
 				<td><%= cat.name %></td>
+				<td>
+					<%= cat.clubs.size %>
+				</td>
 				<td>
 					<%= link_to('Show Clubs', category_path(cat.id),:class=>'btn btn-info') %>	
 					&nbsp;

@@ -2,7 +2,6 @@ class ClubsController < ApplicationController
   
   before_action :confirm_logged_in, :only=>[:index]
   before_action :confirm_admin, :only=>[:index]
-
   def index
     @clubs = Club.sorted
   end
@@ -10,11 +9,13 @@ class ClubsController < ApplicationController
   def new
     @club = Club.new
     @schools = School.all
+    @categories = Category.all
   end
 
   def create
     @club = Club.new(clubs_params)
     @schools = School.all
+    @categories = Category.all
 
     if @club.save 
       flash[:notice]='Club created.'
@@ -26,9 +27,23 @@ class ClubsController < ApplicationController
   end
 
   def edit
+    @club = Club.find(params[:id])
+    @schools = School.all
+    @categories = Category.all
   end
 
   def update
+    @club = Club.find(params[:id])
+    @schools = School.all
+    @categories = Category.all
+     
+    if @club.update_attributes(clubs_params)
+        flash[:notice]="Successfully updated club."
+        redirect_to(club_page_public_path(@club.id))
+    else
+      flash[:notice]="Error updating club."
+      render('edit')
+    end
   end
 
   def show
@@ -54,6 +69,6 @@ class ClubsController < ApplicationController
   private
 
     def clubs_params
-      params.require(:club).permit(:clubname, :description, :president, :phone, :email, :school_id, :display_picture)
+      params.require(:club).permit(:clubname, :description, :president, :phone, :email, :school_id, :display_picture, :category_ids)
     end
 end

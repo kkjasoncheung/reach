@@ -96,7 +96,7 @@ input {
 
 @media (max-height: 700px){
 	.LHS{
-		height:700px;
+		height:800px;
 	}
 }
 
@@ -106,12 +106,7 @@ input {
 		
 	}
 
-	.account_container {
-		background-image: url('blue-grad2.png');
-		background-size: 100% 200%;
-		color: #676a6c;
-		height:100%;
-	}
+	
 	#side-menu {
 		background-color: #2f4050;
 		padding:0;

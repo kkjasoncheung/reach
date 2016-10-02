@@ -70,12 +70,31 @@
   end
 
   resources :categories do
+    
     resources :clubs 
+    
     member do 
       get :delete 
     end
+
   end
 
+
+  resources :public do 
+    member do # member REST routes always require and id 
+      get :club_page #creates helper : club_page_public_path(:id)
+      get :join_club
+      get :account
+      get :leave_club
+      get :my_clubs
+    end
+
+    collection do
+      get :concierge
+      get :logout
+      get :index
+    end
+  end
 
 
  

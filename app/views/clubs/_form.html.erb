@@ -16,6 +16,10 @@
 		<td><%= f.select(:school_id, @schools.map{|s| [s.name, s.id]}) %></td>
 	</tr>
 	<tr>
+		<th><%= f.label(:category_ids, "Category") %></th>
+		<td><%= f.select(:category_ids, @categories.map{|c| [c.name, c.id]}) %></td>
+	</tr>
+	<tr>
 		<th>Club Photo</th>
 		<td><%= f.file_field(:display_picture) %></td>
 	</tr>

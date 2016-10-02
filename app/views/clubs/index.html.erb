@@ -34,7 +34,7 @@
 		<tr>
 			<td>
 				<% if club.display_picture.exists? %>
-					<%= image_tag club.display_picture.url(:thumb)%>
+					<%= image_tag club.display_picture.url(:medium)%>
 				<% else %>
 				<% end %>
 			</td>
