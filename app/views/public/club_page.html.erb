@@ -1,22 +1,26 @@
 <% @page_title ='Show ' + @club.clubname %>
 
+<%= render(:partial=>'navigation') %>
+
+
 <div class="container">
+
 
 	<% if flash[:notice] %>
 		<div class="flash_msg">
 			<%= flash[:notice] %>
 		</div>
 	<% end %>
-	<br>
+	
 	<h2><%= @club.clubname %></h2>
 	<hr>
 	<h4>Club Details</h4>
 	<br>
 	
 	<% if !check_if_user_is_in_club(@user, @club.clubname) %>
-		<%= link_to("Join Club",{:action=>'join_club', :club_id=>@club.id}, :class=>'btn btn-success') %>
+		<%= link_to("Join Club",join_club_public_path(@club.id), :class=>'btn btn-success') %>
 	<% else %>
-		<%= link_to('Leave Club', {:action=>'leave_club',:club_id=>@club.id}, :class=>'btn btn-danger') %>
+		<%= link_to('Leave Club', leave_club_public_path(@club.id), :class=>'btn btn-danger') %>
 	<% end %>
 
 	<br>
@@ -37,7 +41,7 @@
 		<tr>
 			<td>
 				<% if @club.display_picture.exists? %>
-					<%= image_tag @club.display_picture.url(:thumb)%>
+					<%= image_tag @club.display_picture.url(:medium)%>
 				<% else %>
 				<% end %>
 			</td>

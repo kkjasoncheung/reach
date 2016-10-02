@@ -2,12 +2,10 @@
 	
 <style type="text/css">
 	@media(max-width: 1200px){
-	img {
-		margin-right:100px;
+		img {
+			margin-right:100px;
+		}
 	}
-
-}
-
 
 		#hero-text {
 			margin-top: 14%;
@@ -104,7 +102,7 @@
 
 		@media (max-height:461px){
 			.background{
-				height:500px;
+				height:600px;
 			}
 		}
 
@@ -157,7 +155,7 @@
 			<br/>
 			<br/>
 			<br/>
-			<%= link_to('Concierge', {:action=>'concierge'}, :class=>'new-user-btn concierge-btn') %>
+			<%= link_to('Concierge', concierge_public_index_path, :class=>'new-user-btn concierge-btn') %>
 		</div>
 	
 	</div>

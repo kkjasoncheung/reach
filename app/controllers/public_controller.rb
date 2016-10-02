@@ -1,4 +1,6 @@
 class PublicController < ApplicationController
+
+  layout 'application'
  	
   def index
   	if session[:user_id]
@@ -9,7 +11,8 @@ class PublicController < ApplicationController
   def attempt_login
 
   	if params[:email].present? && params[:password].present?
-  		found_user = User.where(:email=>params[:email]).first
+  		
+      found_user = User.where(:email=>params[:email]).first
   		
   		if found_user	
   			authorized_user = found_user.authenticate(params[:password])
@@ -18,15 +21,22 @@ class PublicController < ApplicationController
 		  		session[:user_id] = authorized_user.id
 		  		redirect_to(:action=>'concierge')
 		  		flash[:notice]="Welcome back " + session[:username] 
-	 		end
+	 		 
+        else
+          render("index")       
+        end
+
+      else 
+        render("index")
   		end
- 	else 
- 		flash[:notice]='Invalid password/username combination'
- 		render("index")
- 	end
+ 	  else 
+   		flash[:notice]='Invalid password/username combination'
+   		render("index")
+ 	  end
   end
 
   def concierge
+    @cats = Category.order('id DESC')
 
   end
 
@@ -56,11 +66,11 @@ class PublicController < ApplicationController
 
   def join_club
   	@user=User.find(session[:user_id])
-  	@club = Club.find(params[:club_id])
+  	@club = Club.find(params[:id])
   	if !check_if_user_is_in_club(@user,@club.clubname)
 	  	@user.clubs << @club
 	  	flash[:notice]='Welcome to ' + @club.clubname + '!'
-	  	render('club_page')
+	  	redirect_to(club_page_public_path(@club.id))
 	else
 	  	flash[:notice]='You are already in this club.'
 	 end
@@ -72,13 +82,17 @@ class PublicController < ApplicationController
   	# tge user (removes only the association)
 
   	@user = User.find(session[:user_id])
-  	@club = Club.find(params[:club_id])
+  	@club = Club.find(params[:id])
   	
   	if @club
   		@user.clubs.delete(@club)
   	end
-  	render('club_page')
+    redirect_to(club_page_public_path(@club.id))
   end
 
+  def my_clubs
+    @user = User.find(session[:user_id])
+    
+  end
 
 end

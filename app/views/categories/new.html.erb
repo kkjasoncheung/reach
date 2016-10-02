@@ -1,2 +1,25 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<% @page_title="New Category" %>
+
+
+
+<div class="container">
+
+	<h2>New category</h2>
+
+	<%= link_to('<< Back to menu', categories_path) %>
+
+	<%= error_messages_for(@category) %>
+
+	<br>
+	<br>
+	<%= form_for(@category) do |f| %>
+
+		<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+
+		<%= submit_tag('Create new category', :class=>'btn btn-primary') %>
+
+	<% end %>
+	<br>
+</div>
+
+
