@@ -1,2 +1,21 @@
-<h1>Clubs#edit</h1>
-<p>Find me in app/views/clubs/edit.html.erb</p>
+<% @page_title = 'Edit Club'  %>
+
+
+<div class="container">
+
+	<h2>Edit Club </h2>
+	
+	<%= link_to('<< Back to Menu', clubs_path) %> 
+
+	<%= error_messages_for(@club) %>
+
+	<br>
+	<br>
+	
+	<%= form_for(@club) do |f| %>
+		
+		<%= render(:partial=>'form', :locals=>{:f=>f}) %>
+
+		<%= submit_tag('Save Changes', :class=>'btn btn-primary') %>
+	<% end %>
+</div>

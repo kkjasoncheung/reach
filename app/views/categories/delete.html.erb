@@ -1,2 +1,13 @@
-<h1>Categories#delete</h1>
-<p>Find me in app/views/categories/delete.html.erb</p>
+<% @page_title="Delete category" %>
+
+<div class="container">
+	<br>
+	<%= link_to('<< Back to category index', categories_path) %>
+	<br>
+	<br>
+	<div class="jumbotron">
+		<p>Are you sure you want to delete : <%= @category.name %> ? </p>
+	</div>
+	<%= link_to('Delete', category_path(@category.id) , :method=> :delete,  :class=>'btn btn-danger') %>
+	<%= link_to('Cancel', categories_path, :class=>'btn btn-success') %>
+</div>
