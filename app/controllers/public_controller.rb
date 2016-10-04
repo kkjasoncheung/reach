@@ -61,7 +61,10 @@ class PublicController < ApplicationController
 
   def club_page
   	@club = Club.find(params[:id])
-  	@user = User.find(session[:user_id])
+  	
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
   end
 
   def join_club

@@ -19,7 +19,7 @@ class Club < ApplicationRecord
 
 	# Adding paperclip gem functionality
 
-	has_attached_file :display_picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :display_picture, styles: {large: "400x400>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   	validates_attachment_content_type :display_picture, content_type: /\Aimage\/.*\z/
 
 end
