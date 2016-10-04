@@ -16,11 +16,12 @@
 	<hr>
 	<h4>Club Details</h4>
 	<br>
-	
-	<% if !check_if_user_is_in_club(@user, @club.clubname) %>
-		<%= link_to("Join Club",join_club_public_path(@club.id), :class=>'btn btn-success') %>
-	<% else %>
-		<%= link_to('Leave Club', leave_club_public_path(@club.id), :class=>'btn btn-danger') %>
+	<% if session[:user_id] %>
+		<% if !check_if_user_is_in_club(@user, @club.clubname) %>
+			<%= link_to("Join Club",join_club_public_path(@club.id), :class=>'btn btn-success') %>
+		<% else %>
+			<%= link_to('Leave Club', leave_club_public_path(@club.id), :class=>'btn btn-danger') %>
+		<% end %>
 	<% end %>
 
 	<br>
