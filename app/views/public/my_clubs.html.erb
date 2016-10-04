@@ -8,6 +8,16 @@
 	
 	<hr class="short_hr">
 
+	<% if @user.clubs.blank? %>
+		<br>
+		<br>
+		<br>
+		<h2>Looks like you're not in any clubs right now.</h2>
+		<br>
+		<h4>Browse clubs through our <%= link_to("concierge", concierge_public_index_path, :class=>'browse_link') %> service and join one today!</h4>
+
+	<% end %>
+
 	<% @user.clubs.in_groups_of(4).each_with_index do |grouped_clubs, index| %>
 		<div class="row">
 
@@ -15,10 +25,12 @@
 					<% if club!= nil %>
 						<div class="card col-md-4 col-xs-4 ">
 							<br>
-							<%= link_to image_tag(club.display_picture.url(:medium), :class=>'card_photo'), club_page_public_path(club.id) %>
-							<h3>
+							<div class="circle_frame">
+								<%= link_to image_tag(club.display_picture.url(:medium), :class=>'card_photo'), club_page_public_path(club.id)%>
+							</div>
+							<h4 id="club_name">
 								<%= club.clubname %>
-							</h3>
+							</h4>
 
 							<hr class="short_hr">
 

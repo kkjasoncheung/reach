@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923231220) do
+ActiveRecord::Schema.define(version: 20161004035152) do
 
   create_table "campus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20160923231220) do
     t.string   "president"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.integer  "phone"
     t.string   "email"
     t.integer  "school_id"
     t.string   "display_picture_file_name"
     t.string   "display_picture_content_type"
     t.integer  "display_picture_file_size"
     t.datetime "display_picture_updated_at"
+    t.string   "phone"
+    t.string   "location"
   end
 
   create_table "clubs_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

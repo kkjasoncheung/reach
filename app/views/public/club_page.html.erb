@@ -2,88 +2,125 @@
 
 <%= render(:partial=>'navigation') %>
 
+<div class="container-fluid club_page_container">
+	<div class="container">
 
-<div class="container">
 
-
-	<% if flash[:notice] %>
-		<div class="flash_msg">
-			<%= flash[:notice] %>
-		</div>
-	<% end %>
-	
-	<h2><%= @club.clubname %></h2>
-	<hr>
-	<h4>Club Details</h4>
-	<br>
-	<% if session[:user_id] %>
-		<% if !check_if_user_is_in_club(@user, @club.clubname) %>
-			<%= link_to("Join Club",join_club_public_path(@club.id), :class=>'btn btn-success') %>
-		<% else %>
-			<%= link_to('Leave Club', leave_club_public_path(@club.id), :class=>'btn btn-danger') %>
+		<% if flash[:notice] %>
+			<div class="flash_msg">
+				<%= flash[:notice] %>
+			</div>
 		<% end %>
-	<% end %>
-
-	<br>
-	<br>
-	<table class="table">
-	<tr>
-		<th>&nbsp;</th>
-		<th>Club Name</th>
-		<th>Description</th>
-		<th>President</th>
-		<th>Categories</th>
-		<th>Email</th>
-		<th>Phone Number</th>
-		<th>Campus</th>
-
-
-	</tr>	
-		<tr>
-			<td>
-				<% if @club.display_picture.exists? %>
-					<%= image_tag @club.display_picture.url(:medium)%>
-				<% else %>
-				<% end %>
-			</td>
-		
-			<td><%= @club.clubname %></td>
-			<td><%= @club.description %> </td>
-			<td><%= @club.president %> </td>
-			<td>
-				<% @club.categories.each do |category| %>
-					<%= link_to(category.name, category_path(category.id)) %> 
-				<% end %>
-
-			</td>
-			<td><%= @club.email %></td>
-			<td><%= @club.phone %></td>
-			<td><%= @club.school.name %></td>
+		<div class="white_text">
+			<h1><%= @club.clubname %></h1> 
 			
-		</tr>
+			<table>
+				<tr>	
+					<% @club.categories.each do |category| %>
+						<td>
+							<h4><%= link_to(category.name, category_path(category.id), :class=>'white_links') %> </h4>
+						</td>
+					<% end %>
 
-	</table>
+					<td>
+						<h4> &nbsp;/ <%= link_to @club.school.name, '#', :class=>'white_links' %></h4>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="row">
 
-	<br>
+			<div class="col-md-8">
+				
+				<div class="jumbotron club_bio">
 
-	<h3>Members</h3>
+					<h2>Who are we?</h2>
+					<hr class="short_hr club_underline">
 
+					<h4>
+						<%= @club.description %>
+					</h4>
+					<br>
+					<h2>Our Team</h2>
+					<hr class="short_hr club_underline">
+					<h4>President: <%= @club.president %></h4>
+					<h4>Executives: None </h4>
 
-	<table class="table">
-		<tr>
-			<th>Username</th>
-			<th>Campus</th>
-			<th>Email</th>
-			<th>Action</th>
-		</tr>
-		
-		<% @club.users.each do |user| %>
-		<tr>
-			<td><%= user.username %></td>
-			<td><%= user.school.name %></td>
-			<td><%= user.email %></td>
-			<td><%= link_to('View Profile', user_path(user.id), :class=>'btn btn-primary')%></td>
-		</tr>
-		<% end %>	
-	</table>
+					<br>				
+
+				</div>
+
+			</div>
+
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h2>Join us today!</h2>
+					<br>
+
+					<% if session[:user_id] %>
+						<% if !check_if_user_is_in_club(@user, @club.clubname) %>
+							<%= link_to("Join Club",join_club_public_path(@club.id), :class=>'btn btn-success') %>
+						<% else %>
+							<%= link_to('Leave Club', leave_club_public_path(@club.id), :class=>'btn btn-danger') %>
+						<% end %>
+					<% else %>
+
+						<%= link_to("Join Club", new_user_path, :class=>'btn btn-success') %>
+
+					<% end %>
+					<br>
+					<br>
+					<%= pluralize(@club.users.size, "active member") %>
+					<br>
+					<br>
+					<hr>
+					<h2>Questions?</h2>
+					<h4>Email: 
+						<% if !@club.email.blank? %> 
+							<%= @club.email %>
+						<% else %>
+							None
+						<% end %>
+					</h4>
+					<h4>Phone Number: 
+						<% if !@club.phone.blank?  %>
+							<%= @club.phone %></h4>
+						<% else %>
+							None
+						<% end %>
+					<h4>Location: 
+						<% if !@club.location.blank? %>
+							<%= @club.location %> </h4>
+						<% else %>
+							None
+						<% end %>
+				</div>
+
+			</div>
+
+		</div>
+
+		<br>
+
+		<div class="row">
+			
+			<div class="col-md-6">
+				<div class="jumbotron">
+
+					<h2>Upcoming Events</h2>
+					<h4>Check back soon!</h4>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="jumbotron">
+
+					<h2>Updates</h2>
+					<h4>Check back soon!</h4>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>
