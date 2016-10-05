@@ -1,0 +1,53 @@
+<% @page_title="Search Results" %>
+
+<%= render(:partial=>'navigation') %>
+
+<div class="container-fluid">
+
+	
+	<div class="container">
+		<h2>Search Results</h2>
+
+		<% if params[:search] %>
+
+			<table class="table search_table">
+				<tr>
+					<th class="wide_table_column">Name</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Campus</th>
+				</tr>
+
+				<% @search_results.each do |result| %>
+					<tr>
+						<td>
+							<h4>
+								<%= link_to(result.clubname,club_page_public_path(result.id)) %>
+							</h4>
+						</td>
+						<td class="short_table_data">
+							<h5>
+								<%= result.description %>	
+							</h5>
+						</td>
+						<td>
+							<h4>
+								<% result.categories.each do |cat| %>
+									<%= "#{cat.name} " %>
+								<% end %>	
+							</h4>
+						</td>
+						<td>
+							<h4>
+								<%= result.school.name %>	
+							</h4>
+						</td>
+					</tr>
+				<% end %>
+
+			</table>
+		<% else %>
+
+		<% end %>
+	</div>
+</div>
