@@ -22,4 +22,14 @@ class Club < ApplicationRecord
 	has_attached_file :display_picture, styles: {large: "400x400>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   	validates_attachment_content_type :display_picture, content_type: /\Aimage\/.*\z/
 
+  	# defining the seach function
+  	# attaches this to the end of Club. in the public controller
+
+  	def self.search(search)
+  		if search
+  			where(["clubname LIKE ?","%#{search}%"])
+  		else
+  			all
+  		end
+  	end
 end

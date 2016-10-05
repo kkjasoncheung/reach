@@ -273,6 +273,7 @@ img {
     border-radius: 4px;
     padding:5px 10px;
     margin: 0 8px;
+    transition: 0.15s;
 }
 
 .browse_link:hover {
@@ -281,6 +282,30 @@ img {
     opacity: 0.8;
     color: #33a5d5;
 }
+
+/* Nav Search Styles */
+.search_field {
+    border-bottom:blue 1px solid;
+    margin-left:10px;
+}
+
+/* Generic Styles */
+
+@media(min-width: 477px){
+
+    .wide_table_column{
+        min-width:200px;
+    }
+}
+
+@media(max-width: 767px){
+    .search_field{
+        width: 95%;
+        margin-bottom: 10px;
+    }
+}
+
+
 
 /* Account template */
 .account_container {
