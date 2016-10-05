@@ -20,6 +20,10 @@
 		<td><%= f.select(:category_ids, @categories.map{|c| [c.name, c.id]}) %></td>
 	</tr>
 	<tr>
+		<th><%= f.label(:location) %></th>
+		<td><%= f.text_field(:location)%></td>
+	</tr>
+	<tr>
 		<th>Club Photo</th>
 		<td><%= f.file_field(:display_picture) %></td>
 	</tr>

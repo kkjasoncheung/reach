@@ -93,6 +93,7 @@
       get :concierge
       get :logout
       get :index
+      get :search
     end
   end
 

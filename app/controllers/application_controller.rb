@@ -33,5 +33,10 @@ class ApplicationController < ActionController::Base
 
     end
 
+    def check_search(search)
+      if !search.blank?
+        redirect_to(:action=>"search", :search=>params[:search])
+      end    
+    end
    
 end

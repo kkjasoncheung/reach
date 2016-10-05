@@ -36,6 +36,7 @@ class PublicController < ApplicationController
   end
 
   def concierge
+    check_search(params[:search])
     @cats = Category.order('id DESC')
 
   end
@@ -50,7 +51,10 @@ class PublicController < ApplicationController
 
 
   def account
-  	if session[:user_id]
+
+    check_search(params[:search])
+  	
+    if session[:user_id]
 
   		@user=User.find(session[:user_id])
 
@@ -60,8 +64,13 @@ class PublicController < ApplicationController
   end
 
   def club_page
+    check_search(params[:search])
+
   	@club = Club.find(params[:id])
-  	@user = User.find(session[:user_id])
+  	
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
   end
 
   def join_club
@@ -91,8 +100,19 @@ class PublicController < ApplicationController
   end
 
   def my_clubs
+
+    check_search(params[:search])
+
     @user = User.find(session[:user_id])
     
+  end
+
+  def search
+    if !params[:search].blank?
+      @search_results = Club.search(params[:search])
+    else 
+      @search_results = Club.search('all')
+    end
   end
 
 end
