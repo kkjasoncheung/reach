@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004035152) do
+ActiveRecord::Schema.define(version: 20161005234103) do
 
   create_table "campus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -54,6 +54,27 @@ ActiveRecord::Schema.define(version: 20161004035152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "club_id"], name: "index_clubs_users_on_user_id_and_club_id", using: :btree
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.string   "date"
+    t.text     "info",       limit: 65535
+    t.string   "location"
+    t.string   "time"
+    t.string   "free"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "club_id"
+    t.integer  "school_id"
+  end
+
+  create_table "events_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id", using: :btree
   end
 
   create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

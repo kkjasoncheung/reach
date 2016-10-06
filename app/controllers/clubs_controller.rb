@@ -10,12 +10,14 @@ class ClubsController < ApplicationController
     @club = Club.new
     @schools = School.all
     @categories = Category.all
+    @users = User.all
   end
 
   def create
     @club = Club.new(clubs_params)
     @schools = School.all
     @categories = Category.all
+    @users = User.all
 
     if @club.save 
       flash[:notice]='Club created.'
@@ -30,9 +32,12 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @schools = School.all
     @categories = Category.all
+    @users = User.all
+
   end
 
   def update
+    @users = User.all
     @club = Club.find(params[:id])
     @schools = School.all
     @categories = Category.all

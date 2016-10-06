@@ -46,7 +46,7 @@
 					<br>
 					<h2>Our Team</h2>
 					<hr class="short_hr club_underline">
-					<h4>President: <%= @club.president %></h4>
+					<h4>President: <%= link_to(@president.first_name + " " + @president.last_name, user_path(@president)) %></h4>
 					<h4>Executives: None </h4>
 
 					<br>				

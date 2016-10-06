@@ -67,7 +67,8 @@ class PublicController < ApplicationController
     check_search(params[:search])
 
   	@club = Club.find(params[:id])
-  	
+    @president = User.find(@club.president)
+
     if session[:user_id]
       @user = User.find(session[:user_id])
     end
@@ -104,7 +105,7 @@ class PublicController < ApplicationController
     check_search(params[:search])
 
     @user = User.find(session[:user_id])
-    
+
   end
 
   def search

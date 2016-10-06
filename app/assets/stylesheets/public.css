@@ -1,3 +1,9 @@
+/* Colours 
+
+    off-white: #eff0f2
+    off-black: #333333
+
+*/
 
 
 body{
@@ -214,7 +220,7 @@ img {
 }
 
 #search_title {
-    color:#eff0f2;
+    color:#eff0f2; /* off-white */
     margin-bottom: 20px;
 }
 
@@ -237,5 +243,20 @@ img {
     margin-right: auto;
     max-width: 125px;
     max-height: 125px;
+}
+
+#search_button{
+    border-bottom:none;
+    color: #333333;
+    background-color: #eff0f2;
+    padding:5px 10px;
+    border-radius: 2px;
+    transition: 0.16s;
+}
+
+#search_button:hover{
+    background-color: #13ec80;
+    color:white;
+
 }
 

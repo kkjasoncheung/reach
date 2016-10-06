@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
 	# relationships
-
+	has_and_belongs_to_many :events
 	has_and_belongs_to_many :clubs
 	belongs_to :school
 	has_secure_password

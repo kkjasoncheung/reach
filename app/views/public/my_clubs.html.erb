@@ -34,9 +34,11 @@
 
 							<hr class="short_hr">
 
-							<p>
-								<%= club.president %>
-							</p>
+							<h4>
+								<% club.categories.each do |cat| %>
+									<%= link_to(cat.name,category_path(cat.id)) %>
+								<% end %>
+							</h4>
 							<%= link_to('Club Info', club_page_public_path(club.id), :class=>'card_action left_action') %>
 
 							<%= link_to('Leave Club', leave_club_public_path(club.id), :class=>'card_action right_action') %>

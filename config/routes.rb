@@ -1,6 +1,7 @@
  Rails.application.routes.draw do
 
 
+  resources :events
   get 'public/index'
 
   get 'login/login'

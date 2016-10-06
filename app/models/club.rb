@@ -5,7 +5,8 @@ class Club < ApplicationRecord
 	has_and_belongs_to_many :users
 	belongs_to :school
 	has_and_belongs_to_many :categories
-
+	has_many :events
+	
 	scope :sorted, lambda{order('clubname DESC')}
 
 	# validations
@@ -16,6 +17,8 @@ class Club < ApplicationRecord
 	validates :description, :presence=>true
 
 	validates :president, :presence=>true
+
+	validates :location, :presence=>true
 
 	# Adding paperclip gem functionality
 

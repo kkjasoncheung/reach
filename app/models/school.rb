@@ -3,4 +3,5 @@ class School < ApplicationRecord
 
 	has_many :clubs
 	has_many :users
+	has_many :events
 end
