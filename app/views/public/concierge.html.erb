@@ -1,8 +1,8 @@
 
-    <%= render(:partial=>'navigation') %>
+<%= render(:partial=>'navigation') %>
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
     <% if flash[:notice] %>
         <br>
@@ -12,87 +12,89 @@
             
         </div>
     <% end %>
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Most Popular
-                    <small>General</small>
-                </h1>
-            </div>
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Most Popular
+                <small>General</small>
+            </h1>
         </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 portfolio-item">
-                    <%= link_to(image_tag('art-text-image.png'), category_path(4))%>
-
-              
-            </div>
-            <div class="col-md-4 portfolio-item">
-            
-                <%= link_to(image_tag('music-text-image.png'), category_path(5))%>
-
-            </div>
-            <div class="col-md-4 portfolio-item">
-     
-                <%= link_to(image_tag('social-text-image.png'), category_path(6))%>
-          
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 portfolio-item">
-                <%= link_to(image_tag('athletics-text-image.png'), category_path(7))%>    
-            </div>
-
-            <div class="col-md-4 portfolio-item">
-       
-                <%= link_to(image_tag('environment-text-image.png'), category_path(8))%>    
-
-            </div>  
-            <div class="col-md-4 portfolio-item">
-                <%= link_to(image_tag('spirit-text-image.png'), category_path(9))%>    
-
-            </div>
-        </div>
-
-       
-
-        <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li class="active">
-                        <a href="#">All</a>
-                    </li>
-                    <li>
-                        <a href="#">UTSG</a>
-                    </li>
-                    <li>
-                        <a href="#">UTSC</a>
-                    </li>
-                    <li>
-                        <a href="#">UTM</a>
-                    </li>
-                   
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-        <!-- Footer -->
-        <footer>
-            <!-- /.row -->
-        </footer>
-
     </div>
-    <!-- /.container -->
+    <!-- /.row -->
+
+    <!-- Projects Row -->
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
+                <%= link_to(image_tag('art-text-image.png'), category_path(4))%>
+
+          
+        </div>
+        <div class="col-md-4 portfolio-item">
+        
+            <%= link_to(image_tag('music-text-image.png'), category_path(5))%>
+
+        </div>
+        <div class="col-md-4 portfolio-item">
+ 
+            <%= link_to(image_tag('social-text-image.png'), category_path(6))%>
+      
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Projects Row -->
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
+            <%= link_to(image_tag('athletics-text-image.png'), category_path(7))%>    
+        </div>
+
+        <div class="col-md-4 portfolio-item">
+   
+            <%= link_to(image_tag('environment-text-image.png'), category_path(8))%>    
+
+        </div>  
+        <div class="col-md-4 portfolio-item">
+            <%= link_to(image_tag('spirit-text-image.png'), category_path(9))%>    
+
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Pagination -->
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <ul class="pagination">
+                <li class="active">
+                    <a href="#">All</a>
+                </li>
+                <li>
+                    <a href="#">UTSG</a>
+                </li>
+                <li>
+                    <a href="#">UTSC</a>
+                </li>
+                <li>
+                    <a href="#">UTM</a>
+                </li>
+               
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+    <!-- Footer -->
+    <footer>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
 
 

@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   
   before_action :confirm_logged_in, :only=>[:index]
   before_action :confirm_admin, :only=>[:index]
+  
   def index
     @clubs = Club.sorted
   end

@@ -201,7 +201,7 @@ img {
 
 }
 
-/* Account template */
+/* Account template account.html.erb */
 .account_container {
         background-image: url('blue-grad2.png');
         margin-top:-20px;
@@ -258,5 +258,15 @@ img {
     background-color: #13ec80;
     color:white;
 
+}
+
+/* club_page.html.erb STYLES */
+
+.glyphicon-flag{
+    color:#ff0000;
+}
+
+.club_events_table td, .club_events_table th .club_updates_table th{
+    padding:0 5px;
 }
 

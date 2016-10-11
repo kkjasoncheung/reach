@@ -1,0 +1,1 @@
+json.array! @club_updates, partial: 'club_updates/club_update', as: :club_update

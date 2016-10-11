@@ -1,0 +1,1 @@
+json.partial! "club_updates/club_update", club_update: @club_update

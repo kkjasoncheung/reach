@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005234103) do
+ActiveRecord::Schema.define(version: 20161006034717) do
 
   create_table "campus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20161005234103) do
     t.index ["club_id", "category_id"], name: "index_categories_clubs_on_club_id_and_category_id", using: :btree
   end
 
+  create_table "club_updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text     "content",    limit: 65535
+    t.string   "title"
+    t.integer  "club_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "clubs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "clubname"
     t.text     "description",                  limit: 65535
@@ -46,6 +54,14 @@ ActiveRecord::Schema.define(version: 20161005234103) do
     t.datetime "display_picture_updated_at"
     t.string   "phone"
     t.string   "location"
+  end
+
+  create_table "clubs_updates", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "club_id"
+    t.integer  "update_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id", "update_id"], name: "index_clubs_updates_on_club_id_and_update_id", using: :btree
   end
 
   create_table "clubs_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -81,6 +97,13 @@ ActiveRecord::Schema.define(version: 20161005234103) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text     "content",    limit: 65535
+    t.string   "title"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

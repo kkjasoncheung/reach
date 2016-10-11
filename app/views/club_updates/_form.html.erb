@@ -1,0 +1,32 @@
+<%= form_for(club_update) do |f| %>
+  <% if club_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(club_update.errors.count, "error") %> prohibited this club_update from being saved:</h2>
+
+      <ul>
+      <% club_update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :club_id, "Club ID" %>
+    <%= f.text_field :club_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

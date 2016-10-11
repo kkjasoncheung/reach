@@ -6,7 +6,9 @@ class Club < ApplicationRecord
 	belongs_to :school
 	has_and_belongs_to_many :categories
 	has_many :events
-	
+	has_many :club_updates
+
+
 	scope :sorted, lambda{order('clubname DESC')}
 
 	# validations

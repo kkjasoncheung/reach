@@ -39,6 +39,8 @@ class PublicController < ApplicationController
     check_search(params[:search])
     @cats = Category.order('id DESC')
 
+    @schools = School.all
+
   end
 
   def logout
@@ -114,6 +116,15 @@ class PublicController < ApplicationController
     else 
       @search_results = Club.search('all')
     end
+  end
+
+  def other_accounts
+
+    check_search(params[:search])
+    
+    @user = User.find(params[:id])
+
+
   end
 
 end

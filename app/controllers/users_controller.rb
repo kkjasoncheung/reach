@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :confirm_logged_in, :except=>[:new, :create]
-  before_action :confirm_admin, :except=>[:new,:create]
+  before_action :confirm_logged_in, :except=>[:new, :create, :show]
+  before_action :confirm_admin, :except=>[:new,:create, :show]
   
   def index
     @users = User.sorted
@@ -37,7 +37,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @schools = School.all
+
+    # also send out an email to thank. 
+
     if @user.save 
+    
+    # UserMailer.signup_confirmation(@user).deliver_now
       flash[:notice]='Welcome ' + @user.username
       session[:username]=@user.username
       session[:user_id]=@user.id

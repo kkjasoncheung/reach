@@ -1,7 +1,5 @@
  Rails.application.routes.draw do
 
-
-  resources :events
   get 'public/index'
 
   get 'login/login'
@@ -88,6 +86,7 @@
       get :account
       get :leave_club
       get :my_clubs
+      get :other_accounts
     end
 
     collection do
@@ -98,6 +97,8 @@
     end
   end
 
+  resources :club_updates
+  resources :events
 
  
 
