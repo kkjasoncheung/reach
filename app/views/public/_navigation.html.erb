@@ -23,10 +23,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    
                     <li>
                         <%= link_to("Concierge", concierge_public_index_path) %>
 
                     </li>
+                    
                     <li>
                         <% if session[:user_id] %>
                             <%= link_to("My Clubs", my_clubs_public_path(session[:user_id])) %>
@@ -34,6 +36,7 @@
                             <%= link_to("My Clubs", :action=>"index")%>
                         <% end %>
                     </li>
+                    
                     <li>
                         <% if session[:user_id] %>
                             <%= link_to('My Account',account_public_path(session[:user_id])) %>
@@ -41,6 +44,7 @@
                             <%= link_to('Register',new_user_path) %>
                         <% end %>
                     </li>
+                    
                     <% if session[:username] %>
                         <li>
                             <%= link_to('Log out', logout_public_index_path) %>
@@ -50,28 +54,48 @@
                             <%= link_to('Log in', :action=>'index') %>
                         </li>
                     <% end %>
+                    
                     <% if session[:user_id]==1 %>
                         <li>
                             <%= link_to('Manage users', users_path) %>
                         </li>
                     <% end %>
-
+                    
                 </ul>
 
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <%= form_for(:club) do %>
 
-                            <%= text_field_tag(:search, params[:search], :class=>"search_field",:placeholder=>"Search") %>
-                            &nbsp;
-                            <%= submit_tag("Search",:id=>'search_button') %>
-                        <% end %>
+                <!-- Search field -->
+                <div class="search_div">
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <%= form_for(:club) do %>
 
-                    </div>
+                                <%= text_field_tag(:search, params[:search], :class=>"search_field",:placeholder=>"Search") %>
+                                &nbsp;
+                                <%= submit_tag("Search",:id=>'search_button') %>
+                            <% end %>
 
-                </form>
+                        </div>
+
+                    </form>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
+
+   <script type="text/javascript">
+        // fix the if statement.
+        var screen_width = screen.width;
+        if (screen_width>767){
+            $("#search_button").hover(function(){
+                $(".search_field").show();
+                $(".search_field").animate({width:'250px'},'fast');
+            });
+        }    
+
+   </script>
+        
+
+

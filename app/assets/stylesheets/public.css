@@ -53,6 +53,11 @@ img {
 
 /* MY CLUBS Stylesheet */
 
+#title{
+    margin: 0 auto;
+    margin-top:20px;
+}
+
 #myclubs_container {
     background-image: url("blue-grad2.png");
     background-size: cover;
@@ -175,7 +180,25 @@ img {
     margin-left:10px;
 }
 
+@media(min-width: 768px){
+    .search_field{
+        width:0;
+        display:none;
+    }
+}
 
+@media(max-width: 767px){
+    .search_field{
+        width: 76.5%;
+        margin-bottom: 10px;
+    }
+    .search_div{
+        text-align: center;
+    }
+    .navbar-nav{
+        text-align:center;
+    }
+}
 
 /* Generic Styles */
 
@@ -186,14 +209,6 @@ img {
     }
 }
 
-@media(max-width: 767px){
-    .search_field{
-        width: 90%;
-        margin-bottom: 10px;
-
-    }
-
-}
 
 .jumbotron{
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -269,4 +284,7 @@ img {
 .club_events_table td, .club_events_table th .club_updates_table th{
     padding:0 5px;
 }
+
+/* concierge.html.erb styles */
+
 
