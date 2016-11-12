@@ -94,6 +94,8 @@
       get :logout
       get :index
       get :search
+      get :contact
+      get :about
     end
   end
 

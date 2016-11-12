@@ -1,7 +1,8 @@
 class PublicController < ApplicationController
 
-  layout 'application'
- 	
+  layout 'application', :except =>  ['index']
+
+
   def index
   	if session[:user_id]
   		redirect_to(:action=>'concierge')
@@ -98,6 +99,7 @@ class PublicController < ApplicationController
   	
   	if @club
   		@user.clubs.delete(@club)
+      flash[:notice]="You have left the club"
   	end
     redirect_to(club_page_public_path(@club.id))
   end
@@ -122,7 +124,7 @@ class PublicController < ApplicationController
 
     check_search(params[:search])
     
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) # params[:id] gets the id in the url and finds that user
 
 
   end

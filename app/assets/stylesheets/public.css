@@ -32,6 +32,7 @@ img {
 	font-size:16px;
 	text-align: center;
 	border-radius: 5px;
+    
 }
 
 .invalid_flash_msg{
@@ -226,43 +227,7 @@ img {
         min-height: 100%;
     }
 
-.account_footer{
-    border: 1px solid #4c4c4c;
-    margin: 0;  
-    min-height: 100px;
-    margin-bottom: 0;
-    background-color: #4c4c4c;
-    text-align: center;
-    color: #cccccc;
-   box-shadow: 0px 0px 10px #888888;
 
-}
-
-
-
-#footer_table {
-    margin: 0 auto;
-}
-
-#footer_table td {
-    padding: 10px 20px;
-}
-
-#footer_table td a {
-    text-decoration: none;
-    color:#cccccc;
-    font-size: 1.1em;
-    transition: 0.1s linear;
-    padding: 5px 10px;
-    border-radius: 2px;
-
-}
-
-#footer_table td a:hover{
-    color:white;
-    background-color: gray;
-
-}
 /* search.html.erb styles */
 
 .search_container{
@@ -323,5 +288,19 @@ img {
 }
 
 /* concierge.html.erb styles */
+
+
+/* other_accounts.html.erb */
+
+.other_accounts_container{
+    background-image: url('poly-bg4.jpg');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+#other_accounts_name{
+    color: white;
+    text-align: center;
+}
 
 

@@ -2,61 +2,64 @@
 
 <%= render(:partial=>'navigation') %>
 
-<div class="container">
-	<br>
-	<%= link_to('<< Back to menu', users_path) %>
+<div class="container-fluid other_accounts_container">
 	<br>
 	<br>
-	<h2>Viewing from <%= session[:username] %></h2>
+	<div id="other_accounts_name_div">
+		<h1 id="other_accounts_name"><%= @user.username %>'s Profile </h1>
+	</div>
 	<br>
-	<h1> Information About : <%= @user.username %></h1>
+	<hr>
 	<br>
-	<h4>Account Information </h4>
-	<br>
-	<table class="table">
-		<tr>
-			<th>Username</th>
-			<th>Email</th>
-			<th>Gender</th>
-			<th>Year of Study</th>
-			<th>Campus</th>
-			<th>Account Created On </th>
-			<th>Account Last Updated</th>
-			<th>Student Number</th>
-		</tr>
-		<tr>
-			
-		</tr>
-		<tr>
-			<td><%= @user.username %></td>
-			<td><%= @user.email %></td>
-			<td><%= @user.gender %></td>
-			<td><%= @user.year_of_study %></td>
-			<td><%= @user.school.name %></td>
-			<td><%= time_ago_in_words(@user.created_at) + ' ago' %> </td>
-			<td><%= time_ago_in_words(@user.updated_at) + ' ago' %></td>
-			<td>
-				<%= @user.student_number.to_s %>
-			</td>
-		</tr>
-	</table>	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<div class="jumbotron">
 
-	<h4>Joined Clubs</h4>
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Action</th>
-			</tr>
-			<% @user.clubs.each do |club| %>
-				<tr>
-					<td><%= club.clubname %></td>
-					<td>
-						<%= link_to('View Club', club_path(club.id), :class=>'btn btn-primary') %>
-					</td>
-				</tr>
-				
-			<% end %>
-		</table>
+				<h3><%= @user.first_name + " " +@user.last_name %>  </h3>
+
+				<br>
+
+				<table class="table">
+					<tr>
+						<th>Year of Study</th>
+						<th>Campus</th>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td><%= @user.year_of_study %></td>
+						<td><%= @user.school.name %></td>
+						
+					</tr> 
+				</table>
+
+				<%= link_to("Add to network", '#', :class=>'btn btn-info')%>		
+	
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="jumbotron">
+				<h4><%= @user.username %>'s Clubs</h4>
+				<table class="table">
+					<tr>
+						<th>Name</th>
+					</tr>
+					<% @user.clubs.each do |club| %>
+						<tr>
+							<td><%= link_to(club.clubname, club_page_public_path(club.id)) %></td>
+							
+						</tr>
+						
+					<% end %>
+				</table>
+			</div>
+		</div>
+		
+	</div>
 	<br>
 </div>
+
+<%= render(:partial=>'footer') %>
 

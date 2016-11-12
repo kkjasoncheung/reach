@@ -16,6 +16,13 @@
 //= require_tree .
 // fix the if statement.
 
+$(document).ready(function(){
+
+	setTimeout(function(){
+		$(".flash_msg").fadeOut("slow");
+	}, 1000);
+
+});
 
 
 
