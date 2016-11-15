@@ -329,3 +329,6 @@ img {
     color:#00b8e6 ;
 }
 
+.btn-contact, .add-network-btn {
+    margin-top:10px;
+}
