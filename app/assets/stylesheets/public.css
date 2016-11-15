@@ -303,4 +303,29 @@ img {
     text-align: center;
 }
 
+.add-network-btn{
+    background-color: #ff0066;
+    border: 1px solid #ff0066;
+    color: white;
+    transition: 0.1s linear;
+}
+
+.add-network-btn:hover{
+    background-color: white;
+    border: 1px solid #ff0066;
+    color: #ff0066;
+}
+
+.btn-contact{
+    border: 1px solid #00b8e6;
+    background-color: #00b8e6;
+    color: white;
+    margin-left:10px;
+    transition: 0.1s linear;
+}
+
+.btn-contact:hover{
+    background-color: white;
+    color:#00b8e6 ;
+}
 
