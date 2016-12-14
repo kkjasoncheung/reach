@@ -28,7 +28,7 @@
 		
 			<td><%= @club.clubname %></td>
 			<td><%= @club.description %> </td>
-			<td><%= @club.president %> </td>
+			<td><%= link_to(@president.first_name + ' ' + @president.last_name, user_path(@president)) %> </td>
 			<td>
 				<% @club.categories.each do |category| %>
 					<%= link_to(category.name, category_path(category.id)) %> 
@@ -44,6 +44,8 @@
 	</table>
 
 	<br>
+
+	<h4>President: <%= link_to(@president.first_name + ' ' + @president.last_name, user_path(@president)) %> </h4>
 
 	<h3>Members</h3>
 

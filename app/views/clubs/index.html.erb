@@ -48,7 +48,7 @@
 
 			<td><%= club.clubname %></td>
 			<td><%= club.description %> </td>
-			<td><%= club.president %> </td>
+			<td><%= link_to(User.find(club.president).first_name + " " + User.find(club.president).last_name, user_path(club.president.to_i)) %> </td>
 			<td>
 				<% club.categories.each do |category| %>
 					<%= link_to(category.name, {:controller=>"categories", :action=>'show', :id=>category.id}) %> 

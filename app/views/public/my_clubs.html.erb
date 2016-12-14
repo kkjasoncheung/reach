@@ -17,7 +17,7 @@
 		<h4>Browse clubs through our <%= link_to("concierge", concierge_public_index_path, :class=>'browse_link') %> service and join one today!</h4>
 
 	<% end %>
-	<div class="row">
+	<div class="row clubs_grid">
 
 		<% @user.clubs.in_groups_of(4).each_with_index do |grouped_clubs, index| %>
 

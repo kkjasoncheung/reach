@@ -62,7 +62,6 @@ img {
 #myclubs_container {
     background-image: url("blue-grad2.png");
     background-size: cover;
-     
     min-height:100vh;
     color:white;
     margin-top:-20px;
@@ -175,6 +174,31 @@ img {
     color: #33a5d5;
 }
 
+.clubs_grid{
+    padding-left: 12%;
+
+}
+
+@media screen and (max-width: 1146px) and (min-width: 1112px){
+
+    .clubs_grid{
+        padding-left: 10%;
+    }
+
+}
+
+@media screen and (max-width: 1111px) and (min-width: 774px){
+    .clubs_grid{
+        padding-left:8%;
+    }
+}
+@media screen and (max-width: 765px){
+
+    .clubs_grid {
+        padding: 0 20%;
+    }
+
+}
 /* Nav Search Field */
 .search_field {
     border-bottom:#cccdce 1.67px solid;
@@ -209,6 +233,7 @@ img {
         min-width:200px;
     }
 }
+
 
 
 .jumbotron{

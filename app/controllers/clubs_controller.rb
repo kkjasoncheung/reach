@@ -54,6 +54,7 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @president = User.find(@club.president.to_i)
   end
 
   def delete
