@@ -75,6 +75,8 @@ img {
     margin-left: -15px;
 }
 
+
+
 .short_hr {
     width:100px;
 }
@@ -192,12 +194,17 @@ img {
         padding-left:8%;
     }
 }
-@media screen and (max-width: 765px){
+@media screen and (max-width: 765px) and (min-width: 415px){
 
     .clubs_grid {
         padding: 0 20%;
     }
 
+}
+@media screen and (max-width:414px){
+    .clubs_grid{
+        padding: 0 7%;
+    }
 }
 /* Nav Search Field */
 .search_field {
